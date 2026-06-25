@@ -43,7 +43,7 @@ Users can simply replace the domain name in the URL and instantly access ratings
 Example:
 
 ```text
-https://chennai.vit.ac.in/member/dr-guga-priya-g/
+https://chennai.vit.ac.in/member/dr-napolean-bonaparte-g/
 ```
 
 2. Replace the domain with:
@@ -63,7 +63,7 @@ https://faculty-cc.netlify.app
 Result:
 
 ```text
-https://faculty-cc.vercel.app/member/dr-guga-priya-g/
+https://faculty-cc.vercel.app/member/dr-napolean-bonaparte-g/
 ```
 
 FacultyCC will automatically display the review page for that faculty member.
