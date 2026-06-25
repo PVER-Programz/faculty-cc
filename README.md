@@ -22,7 +22,7 @@ As you know, there is facutly details page for every proffessor
 ![Domain Replacing](public/vitpage.png)
 
 Users can simply replace the domain name in the URL and instantly access ratings and reviews for the same faculty member.
-![Domain Replacing](public/inst.png)
+![Domain Replacing](public/image_2026-06-25_193123844.png)
 
 
 
