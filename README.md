@@ -6,8 +6,8 @@ FacultyCC is a web application that adds a student-driven review system to VIT C
 
 VIT Chennai provides faculty profile pages such as:
 
-- https://chennai.vit.ac.in/member/dr-richards-joe-stanislaus/
-- https://chennai.vit.ac.in/member/dr-guga-priya-g/
+- https://chennai.vit.ac.in/member/dr-napolean-bonaparte/
+- https://chennai.vit.ac.in/member/dr-albert-epstein/
 
 FacultyCC mirrors the same URL structure while adding community reviews and ratings.
 
@@ -15,12 +15,17 @@ For example:
 
 | Original Faculty Page | FacultyCC Page |
 |----------------------|----------------|
-| https://chennai.vit.ac.in/member/dr-guga-priya-g/ | https://faculty-cc.vercel.app/member/dr-guga-priya-g/ |
-| https://chennai.vit.ac.in/member/dr-guga-priya-g/ | https://faculty-cc.netlify.app/member/dr-guga-priya-g/ |
+| https://chennai.vit.ac.in/member/dr-napolean-bonaparte/ | https://faculty-cc.vercel.app/member/dr-napolean-bonaparte/ |
+| https://chennai.vit.ac.in/member/dr-dr-albert-epstein/ | https://faculty-cc.netlify.app/member/dr-dr-albert-epstein/ |
+
+As you know, there is facutly details page for every proffessor
+![Domain Replacing](public/vitpage.png)
 
 Users can simply replace the domain name in the URL and instantly access ratings and reviews for the same faculty member.
+![Domain Replacing](public/inst.png)
 
-![Domain Replacing](images/instruction.png)
+
+
 
 ## Features
 
@@ -66,6 +71,8 @@ FacultyCC will automatically display the review page for that faculty member.
 ## Purpose
 
 Selecting the right faculty can significantly impact a student's academic experience. FacultyCC aims to help students make informed decisions by providing a platform where they can share and read experiences about faculty members.
+
+![Domain Replacing](public/apppage.png)
 
 ## Disclaimer
 
