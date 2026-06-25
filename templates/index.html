@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ faculty.name }} - Faculty Review | VIT Chennai</title>
+    <meta name="description" content="Leave an anonymous 5-star review and comment for {{ faculty.name }} at VIT Chennai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="faculty-profile glass-panel">
+            <div class="profile-image-container">
+                <img src="{{ faculty.photo }}" alt="{{ faculty.name }}" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name={{ faculty.name | urlencode }}&background=random'">
+            </div>
+            <div class="profile-details">
+                <h1 class="faculty-name">{{ faculty.name }}</h1>
+                <p class="faculty-designation"><i class="fa-solid fa-briefcase"></i> {{ faculty.designation }}</p>
+                <div class="meta-info">
+                    <span class="badge"><i class="fa-solid fa-id-badge"></i> {{ faculty.emp_id }}</span>
+                    <span class="badge"><i class="fa-solid fa-building-columns"></i> {{ faculty.school }}</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="review-section glass-panel">
+            <h2>Drop an Anonymous Review</h2>
+            <form id="review-form" data-faculty-id="{{ faculty.faculty_id }}">
+                <div class="rating-container">
+                    <p class="rating-label">Rate the Faculty</p>
+                    <div class="stars">
+                        <i class="fa-solid fa-star star" data-value="1"></i>
+                        <i class="fa-solid fa-star star" data-value="2"></i>
+                        <i class="fa-solid fa-star star" data-value="3"></i>
+                        <i class="fa-solid fa-star star" data-value="4"></i>
+                        <i class="fa-solid fa-star star" data-value="5"></i>
+                    </div>
+                    <input type="hidden" id="rating-value" name="rating" value="0" required>
+                </div>
+                
+                <div class="comment-container">
+                    <label for="comment" class="comment-label">Anonymous Comment (Optional)</label>
+                    <textarea id="comment" name="comment" rows="4" placeholder="Share your experience..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span>Submit Review</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </section>
+
+        <section class="reviews-list-section glass-panel">
+            <div class="reviews-header">
+                <h2>Recent Reviews</h2>
+                <div class="average-rating" id="average-rating">
+                    <!-- Calculated dynamically via JS -->
+                </div>
+            </div>
+            
+            <div id="reviews-container" class="reviews-container">
+                <div class="loader">
+                    <div class="spinner"></div>
+                    <p>Loading reviews...</p>
+                </div>
+                <!-- Reviews populated here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Firebase SDK Setup -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCq9G4PbKyUiJTDExWT23gk6xamnfPyvhA",
+            authDomain: "facreview-vitcc.firebaseapp.com",
+            projectId: "facreview-vitcc",
+            storageBucket: "facreview-vitcc.firebasestorage.app",
+            messagingSenderId: "950268665190",
+            appId: "1:950268665190:web:1fe55180ced5ebb5fafca7"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Expose db and methods to global scope so script.js can use them
+        window.firebaseDb = db;
+        window.firebaseCollection = collection;
+        window.firebaseAddDoc = addDoc;
+        window.firebaseGetDocs = getDocs;
+        window.firebaseQuery = query;
+        window.firebaseOrderBy = orderBy;
+        window.firebaseServerTimestamp = serverTimestamp;
+    </script>
+    <script src="/static/js/script.js" type="module"></script>
+</body>
+</html>
